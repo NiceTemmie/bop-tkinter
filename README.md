@@ -9,3 +9,5 @@ Bop needs some packges:
   -Wine,not necessary but usefull
   
  To add a game you just have to add it in the file ./game and then configure it easily in bop's interface.
+ Run.sh is just a script to execute 'python3 bop.py'.
+ Debug.sh is the same thing but with a terminal
