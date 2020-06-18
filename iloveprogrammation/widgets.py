@@ -119,7 +119,7 @@ class Game (Frame):
 
     def triggered_fileBrowser(self):
         self.filename = filedialog.askopenfilename(initialdir="{}/{}".format(BV["GAMES_PATH"],self.game_name), title = "Select Main File")
-        self.entry_command.insert(0,self.filename)
+        self.entry_command.insert(0,"'%s'"%self.filename)
 
     def debug(self,txt=''):
         print("["+str(self.game_name)+"]: "+str(txt))
