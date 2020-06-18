@@ -48,6 +48,12 @@ BopGames=gd
 
 
 if __name__ == "__main__":
+
+    try:
+        os.system("git pull")
+    except :
+        print("Unable to connect to github")
+
     master_window=Tk()
     master_window.geometry(BopValues["BOPSIZE"])
     master_window.title(BopValues["SCREENTITLE"])
