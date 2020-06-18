@@ -50,8 +50,7 @@ BopGames=gd
 if __name__ == "__main__":
 
     try:
-        os.system("cd %s"%BopValues["PATH"])
-        os.system("git pull")
+        os.system("bash '%s/github.sh'"%BopValues["PATH"])
     except :
         print("Unable to connect to github")
 
