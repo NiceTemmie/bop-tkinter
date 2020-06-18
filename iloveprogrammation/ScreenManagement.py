@@ -17,14 +17,14 @@ class NavigationMenu(Frame):
         self.gameScreen=GameScreen(master)
         self.gameScreen.grid(column=1,row=0,sticky=N+S)
 
-
-
 class GameScreen(Frame):
     def __init__(self, master=None):
         super().__init__(master,background=BV["COLOR_BACKGROUND2"],height=BV["HEIGHT"],width=BV["WIDTH"]*3/4)
         self.low=0
         self.hight=8
         self.pages_number=len(BV["GAME_LIST"])//8 #Get the numbers of pages (8games/page) it work like that cause the pages starts to 0 not 1 so no need of +1
+        if len(BV["GAME_LIST"])%8 is 0:#Prevent from page without any games
+            self.pages_number-=1
         self.page=0
 
         self.grid_propagate(0)

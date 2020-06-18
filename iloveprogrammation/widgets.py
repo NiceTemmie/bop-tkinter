@@ -44,7 +44,7 @@ class Game (Frame):
     def view_config(self):
         self.columnconfigure(4, weight=1)
 
-        Label(self,text="Main files directory",background=BV["COLOR_BACKGROUND"]).grid(row=0,column=4,sticky=W+E,columnspan=3)
+        Label(self,text="Main files directory" ,background=BV["COLOR_BACKGROUND"]).grid(row=0,column=4,sticky=W+E,columnspan=3)
         Label(self,text="Title of the game",background=BV["COLOR_BACKGROUND"]).grid(row=0,column=0,sticky=W+E,columnspan=3)
         Button(self,text='Save', command=self.triggered_save_button,background=BV["COLOR_BACKGROUND"]).grid(row=2,column=1)
         Button(self,text='Back', command=self.triggered_back_button,background=BV["COLOR_BACKGROUND"]).grid(row=2,column=0)

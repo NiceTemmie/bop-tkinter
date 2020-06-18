@@ -49,6 +49,7 @@ BopGames=gd
 
 if __name__ == "__main__":
 
+    #Try to update from Github. Just a bonus
     try:
         os.system("bash '%s/github.sh'"%BopValues["PATH"])
     except :
