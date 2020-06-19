@@ -7,6 +7,7 @@ from bop import BopGames as BG
 from bop import saveData
 from tkinter.font import Font
 import os
+from threading import Thread
 
 class Game (Frame):
 
@@ -123,3 +124,25 @@ class Game (Frame):
 
     def debug(self,txt=''):
         print("["+str(self.game_name)+"]: "+str(txt))
+
+class loading_time(Tk):
+
+    def __init__(self,text='loading...'):
+        self.root= Tk()
+        self.root.geometry('300x200')
+        self.root.overrideredirect(1)
+        self.root.configure(background=BV["COLOR_MENU"])
+        self.root.columnconfigure(0,weight=1)
+        self.root.rowconfigure(0,weight=1)
+
+        self.font = Font(family="Open sans extra bold",size=19)
+        Label(self.root,text=text,foreground=BV["COLOR_BACKGROUND"],background=BV["COLOR_MENU"],font=self.font).grid(row=0,column=0)
+
+        positionRight = int(self.root.winfo_screenwidth()/2 - self.root.winfo_reqwidth()/2)
+        positionDown = int(self.root.winfo_screenheight()/2 - self.root.winfo_reqheight()/2)
+        self.root.geometry("+{}+{}".format(positionRight, positionDown))
+
+        self.root.update()
+
+    def end(self):
+        self.root.destroy()

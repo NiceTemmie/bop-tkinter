@@ -7,10 +7,6 @@ from os.path import isfile, join
 import os
 import ScreenManagement as SM
 
-
-#VO.4  15/06/2020
-#News: Page system to have more than 8game on your colection , Upgrade hud with font and logo (change some grid for game wodget)
-
 #----------------------------------------------------------------------------------------------------------
 
 def saveData(*x): #Ecrire avec Pickle
@@ -44,16 +40,16 @@ for k,v in BopGames.items():
     gd[str(k)]=v
 BopGames=gd
 
-
-
-
 if __name__ == "__main__":
+    from widgets import loading_time
 
     #Try to update from Github. Just a bonus
+    load=loading_time(text="Waiting for Github...")
     try:
         os.system("bash '%s/github.sh'"%BopValues["PATH"])
     except :
         print("Unable to connect to github")
+    load.end()
 
     master_window=Tk()
     master_window.geometry(BopValues["BOPSIZE"])
