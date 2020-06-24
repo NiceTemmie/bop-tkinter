@@ -13,8 +13,8 @@ class Game (Frame):
 
     def __init__(self,master=None,game_name='', configured=True):
         super().__init__(master,width=BV["WIDTH"]*3/4,height=BV["HEIGHT"]/9, background=BV["COLOR_BACKGROUND"])
-        self.font_game_title = Font(family="ArchivoBlack",size=15)
-        self.font_configured = Font(family="Open sans light",size=11)
+        self.font_game_title = Font(family="ArchivoBlack",size=20)
+        self.font_configured = Font(family="Open sans light",size=16)
         self.game_name=game_name
         self.configured=configured
         self.grid_propagate(0)
@@ -146,3 +146,14 @@ class loading_time(Tk):
 
     def end(self):
         self.root.destroy()
+
+class NavigationMenu_label(Label):
+
+    position=1
+
+    def __init__(self,master=None,command=None,name='text'):
+        self.font = Font(family="ArchivoBlack",size=18)
+        super().__init__(master,text=name,background=BV["COLOR_MENU"],foreground=BV["COLOR_BACKGROUND"],font=self.font)
+        self.grid(row=NavigationMenu_label.position,column=0)
+        self.bind("<Button-1>",command)
+        NavigationMenu_label.position+=1

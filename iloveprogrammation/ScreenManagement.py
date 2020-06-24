@@ -12,10 +12,15 @@ class NavigationMenu(Frame):
         super().__init__(master,background=BV["COLOR_MENU"],width=BV["WIDTH"]/4,height=BV["HEIGHT"])
         self.grid_propagate(0)
         self.columnconfigure(0,weight=1) #fill all the widgets width
-        self.font_bop = Font(family="Open sans extra bold",size=63)
+        self.font_bop = Font(family="Open sans extra bold",size=90)
         Label(self,text="Bop!",font=self.font_bop,foreground=BV["COLOR_BACKGROUND"],background=BV["COLOR_MENU"]).grid()
+        NavigationMenu_label(self,name='Games')
+        NavigationMenu_label(self,name='Quit', command=self.iwannago)
         self.gameScreen=GameScreen(master)
         self.gameScreen.grid(column=1,row=0,sticky=N+S)
+
+    def iwannago(self,event):
+        self.quit()
 
 class GameScreen(Frame):
     def __init__(self, master=None):

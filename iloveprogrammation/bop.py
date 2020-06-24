@@ -21,9 +21,9 @@ def getData(): #lire avec pickle
         return data #on retourne le résultat"""
 
 #-----------------------------------------------------------------------------------------------------------
-
-BopValues={"WIDTH":1000,
-            "HEIGHT":900,
+givemevalue=Tk()
+BopValues={"WIDTH":givemevalue.winfo_screenwidth(),
+            "HEIGHT":givemevalue.winfo_screenheight(),
             "PATH":os.path.dirname(os.path.realpath(__file__)),
             "SCREENTITLE":"Bop!",
             "COLOR_BACKGROUND":'#FFFFFF',
@@ -33,6 +33,9 @@ BopValues={"WIDTH":1000,
 BopValues["GAMES_PATH"]=BopValues["PATH"][:-19]+"/games"
 BopValues["BOPSIZE"]=str(BopValues["WIDTH"])+"x"+str(BopValues["HEIGHT"])
 BopValues["GAME_LIST"]=os.listdir(BopValues["GAMES_PATH"])
+
+givemevalue.destroy()
+del givemevalue
 
 BopGames=getData()[0]
 gd=dict()
@@ -52,6 +55,7 @@ if __name__ == "__main__":
     load.end()
 
     master_window=Tk()
+    master_window.overrideredirect(True)
     master_window.geometry(BopValues["BOPSIZE"])
     master_window.title(BopValues["SCREENTITLE"])
     master_window.configure(background= BopValues["COLOR_BACKGROUND"])
