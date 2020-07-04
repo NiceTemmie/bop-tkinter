@@ -14,8 +14,6 @@ class NavigationMenu(Frame):
         self.columnconfigure(0,weight=1) #fill all the widgets width
         self.font_bop = Font(family="Open sans extra bold",size=90)
         Label(self,text="Bop!",font=self.font_bop,foreground=BV["COLOR_BACKGROUND"],background=BV["COLOR_MENU"]).grid()
-        NavigationMenu_label(self,name='Games')
-        NavigationMenu_label(self,name='Quit', command=self.iwannago)
         self.gameScreen=GameScreen(master)
         self.gameScreen.grid(column=1,row=0,sticky=N+S)
 

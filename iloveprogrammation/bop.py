@@ -55,7 +55,7 @@ if __name__ == "__main__":
     load.end()
 
     master_window=Tk()
-    master_window.overrideredirect(True)
+    master_window.attributes('-fullscreen', True) 
     master_window.geometry(BopValues["BOPSIZE"])
     master_window.title(BopValues["SCREENTITLE"])
     master_window.configure(background= BopValues["COLOR_BACKGROUND"])
